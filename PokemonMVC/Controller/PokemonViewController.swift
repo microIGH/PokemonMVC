@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    let ggg = "hola a todos"
+class PokemonViewController: UIViewController {
+    let ggg = "hola"
     
     override func viewDidLoad() {
         super.viewDidLoad()
