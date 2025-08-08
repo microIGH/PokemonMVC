@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+struct Pokemon {
+    let image: Int
+    let name: String
+    let movement: String
+    let ability: String
+    
+    init(imageId: Int, name: String, movement: String, ability: String) {
+        self.image = imageId
+        self.name = name
+        self.movement = movement
+        self.ability = ability
+    }
+}
