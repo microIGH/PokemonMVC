@@ -15,21 +15,13 @@ class PokemonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("🚀 viewDidLoad ejecutado")
-            print("📱 TableView existe: \(pokemonTableView != nil)")
-        
         setupTableView()
         setupColors()
         loadData()
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        print("📏 viewDidAppear - TableView frame: \(pokemonTableView.frame)")
-        print("📏 viewDidAppear - TableView bounds: \(pokemonTableView.bounds)")
     }
     
     private func setupTableView() {
@@ -45,7 +37,7 @@ class PokemonViewController: UIViewController {
     
     private func loadData() {
         dataManager.fetch()
-        print("Cargados \(dataManager.count()) pokémons")
+        //print("Cargados \(dataManager.count()) pokémons")
         pokemonTableView.reloadData()
     }
 }
@@ -54,7 +46,6 @@ extension PokemonViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = dataManager.count()
-        print("numberOfRowsInSection: \(count)")
         return count
     }
     
@@ -115,11 +106,7 @@ extension PokemonViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath) as! PokemonCell
-        
         let pokemon = dataManager.getPokemon(at: indexPath.row)
-        
-        print("Configurando celda \(indexPath.row): \(pokemon.name)")
-        
         cell.pokemonNameLabel.text = pokemon.name
         cell.pokemonImageView.image = UIImage(named: "\(pokemon.image)")
         
@@ -140,6 +127,4 @@ extension PokemonViewController: UITableViewDataSource, UITableViewDelegate {
         modalVC.modalPresentationStyle = .pageSheet
         present(modalVC, animated: true)
     }
-    
-    
 }

@@ -40,7 +40,7 @@ class PokemonDataManager {
     
     func fetch() {
         guard !hasLoaded else {
-            print("Datos ya cargados previamente")
+            //print("Datos ya cargados previamente")
             return
         }
         
@@ -58,7 +58,7 @@ class PokemonDataManager {
         }
         
         hasLoaded = true
-        print("Cargados \(pokemons.count) pokémons")
+        //print("Cargados \(pokemons.count) pokémons")
     }
     
     func getPokemon(at index: Int) -> Pokemon {
