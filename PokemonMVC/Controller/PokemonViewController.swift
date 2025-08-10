@@ -20,6 +20,7 @@ class PokemonViewController: UIViewController {
             print("📱 TableView existe: \(pokemonTableView != nil)")
         
         setupTableView()
+        setupColors()
         loadData()
     }
     
@@ -34,6 +35,12 @@ class PokemonViewController: UIViewController {
     private func setupTableView() {
         pokemonTableView.delegate = self
         pokemonTableView.dataSource = self
+    }
+    
+    private func setupColors() {
+        // Usar colores adaptativos
+        view.backgroundColor = UIColor(named: "PokemonHeaderBackground")
+        pokemonTableView.backgroundColor = UIColor.systemBackground
     }
     
     private func loadData() {
@@ -56,9 +63,50 @@ extension PokemonViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let imageView = UIImageView(image: UIImage(named: "Pokemon"))
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+        //create container view
+          let containerView = UIView()
+
+          //Create image view
+          let imgHeader = UIImageView.init(image: UIImage(named: "Pokemon"))
+          imgHeader.translatesAutoresizingMaskIntoConstraints = false
+
+          // Create view for blur effect
+          let bgView = UIVisualEffectView()
+          bgView.translatesAutoresizingMaskIntoConstraints = false
+
+          // Create blur effect
+          let blurEffect = UIBlurEffect(style: .light)
+          bgView.effect = blurEffect
+          containerView.addSubview(bgView)
+          containerView.addSubview(imgHeader)
+
+          //Set contraints
+          containerView.heightAnchor.constraint(
+              equalToConstant: imgHeader.frame.height
+          ).isActive = true
+
+          imgHeader.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+              .isActive = true
+
+          NSLayoutConstraint.activate(
+              [
+                  bgView.topAnchor.constraint(equalTo: containerView.topAnchor)
+                  ,
+                  bgView.bottomAnchor.constraint(
+                      equalTo: containerView.bottomAnchor
+                  )
+                  ,
+                  bgView.leadingAnchor.constraint(
+                      equalTo: containerView.leadingAnchor
+                  )
+                  ,
+                  bgView.trailingAnchor.constraint(
+                      equalTo: containerView.trailingAnchor
+                  ),
+              ]
+          )
+
+          return containerView
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -77,4 +125,21 @@ extension PokemonViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let pokemon = dataManager.getPokemon(at: indexPath.row)
+        
+        // Crear el modal
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let modalVC = storyboard.instantiateViewController(withIdentifier: "PokemonModalViewController") as! PokemonModalViewController
+        modalVC.pokemon = pokemon
+        
+        // Presentar como modal
+        modalVC.modalPresentationStyle = .pageSheet
+        present(modalVC, animated: true)
+    }
+    
+    
 }

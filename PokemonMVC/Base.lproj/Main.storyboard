@@ -78,10 +78,88 @@
             </objects>
             <point key="canvasLocation" x="26.717557251908396" y="4.9295774647887329"/>
         </scene>
+        <!--Pokemon Modal View Controller-->
+        <scene sceneID="9zX-pa-v33">
+            <objects>
+                <viewController storyboardIdentifier="PokemonModalViewController" id="xMY-Mc-WYr" customClass="PokemonModalViewController" customModule="PokemonMVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yDB-tJ-d02">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="igu-YX-gjy">
+                                <rect key="frame" x="96.666666666666686" y="218" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="OOw-Qm-hIq"/>
+                                    <constraint firstAttribute="height" constant="200" id="pGe-hF-kYC"/>
+                                    <constraint firstAttribute="width" constant="200" id="r32-Qf-1aQ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="tSn-KQ-LaZ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLn-y5-yp4">
+                                <rect key="frame" x="156.66666666666666" y="468" width="80" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZm-F7-9Vc">
+                                <rect key="frame" x="163.33333333333334" y="612.66666666666663" width="66.333333333333343" height="33.666666666666629"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVX-8O-iwM">
+                                <rect key="frame" x="20" y="168" width="30" height="46"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="xMY-Mc-WYr" eventType="touchUpInside" id="MPB-8d-t2h"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKn-MT-XgE">
+                                <rect key="frame" x="163.33333333333334" y="549" width="66.333333333333343" height="33.666666666666629"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xPE-Ns-ieC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="igu-YX-gjy" firstAttribute="top" secondItem="xPE-Ns-ieC" secondAttribute="top" constant="100" id="2Xb-mg-ex0"/>
+                            <constraint firstItem="igu-YX-gjy" firstAttribute="centerX" secondItem="yDB-tJ-d02" secondAttribute="centerX" id="F6Q-Ak-LQ1"/>
+                            <constraint firstItem="NLn-y5-yp4" firstAttribute="top" secondItem="igu-YX-gjy" secondAttribute="bottom" constant="50" id="NG3-a8-seZ"/>
+                            <constraint firstItem="TZm-F7-9Vc" firstAttribute="centerX" secondItem="yDB-tJ-d02" secondAttribute="centerX" id="XAX-en-m41"/>
+                            <constraint firstItem="NLn-y5-yp4" firstAttribute="centerX" secondItem="yDB-tJ-d02" secondAttribute="centerX" id="aGr-J6-KuF"/>
+                            <constraint firstItem="TKn-MT-XgE" firstAttribute="top" secondItem="NLn-y5-yp4" secondAttribute="bottom" constant="40" id="h8Q-Ot-7dA"/>
+                            <constraint firstItem="TKn-MT-XgE" firstAttribute="centerX" secondItem="yDB-tJ-d02" secondAttribute="centerX" id="jb8-TI-XRB"/>
+                            <constraint firstItem="TZm-F7-9Vc" firstAttribute="centerX" secondItem="yDB-tJ-d02" secondAttribute="centerX" id="mJg-Nv-u2r"/>
+                            <constraint firstItem="TZm-F7-9Vc" firstAttribute="top" secondItem="TKn-MT-XgE" secondAttribute="bottom" constant="30" id="twU-Zc-2CT"/>
+                            <constraint firstItem="nVX-8O-iwM" firstAttribute="top" secondItem="xPE-Ns-ieC" secondAttribute="top" constant="50" id="vWv-SK-0MX"/>
+                            <constraint firstItem="igu-YX-gjy" firstAttribute="top" secondItem="xPE-Ns-ieC" secondAttribute="top" constant="100" id="vit-bI-j2Z"/>
+                            <constraint firstItem="nVX-8O-iwM" firstAttribute="leading" secondItem="xPE-Ns-ieC" secondAttribute="leading" constant="20" id="xo0-yk-yjg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="abilityLabel" destination="TZm-F7-9Vc" id="q0E-RB-VVE"/>
+                        <outlet property="closeButton" destination="nVX-8O-iwM" id="CXh-fT-fRp"/>
+                        <outlet property="movementLabel" destination="TKn-MT-XgE" id="xtr-4b-BvL"/>
+                        <outlet property="pokemonImageView" destination="igu-YX-gjy" id="fBp-dw-hN2"/>
+                        <outlet property="pokemonNameLabel" destination="NLn-y5-yp4" id="kj2-SR-9r9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y0o-L5-eJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="780.91603053435108" y="3.5211267605633805"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
